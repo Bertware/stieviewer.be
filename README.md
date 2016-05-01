@@ -3,7 +3,8 @@ Stieviewer.be - unofficial online website for TV streaming using the Stievie API
 
 Stieviewer.be offers the possibility to watch online TV using your existing stievie subscription. This way you're no longer limited to your phone or tablet, but you can also watch online on your computer.
 
-Requirements:
+**Requirements:**
+
 Google Chrome. Firefox works too, except the player which doesn't work properly right now.
 
 A proxy server.
