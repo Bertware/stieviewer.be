@@ -1,0 +1,12 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300);
+@import "normalize.css";
+@import "player";
+
+.clearfix {
+  clear: both;
+}
+
+.video-js > button.vjs-big-play-button{
+  top: calc(50% - 0.75em);
+  left: calc(50% - 1.5em);
+}

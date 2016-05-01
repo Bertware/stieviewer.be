@@ -1,0 +1,250 @@
+$primary-color-dark: #1976D2;
+$primary-color: #2196F3;
+$primary-color-light: #BBDEFB;
+$primary-color-text: #FFFFFF;
+$accent-color: #009688;
+$primary-text-color: #212121;
+$secondary-text-color: #727272;
+$divider-color: #B6B6B6;
+$background-color: #FAFAFA;
+
+$sidebar-width: 360px;
+$sidebar-height: 60px;
+$sidebar-padding-top: 10px;
+
+%verticalscroll {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+%opensanslight {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 300;
+}
+
+@mixin material-shadow($bottom,$right) {
+  box-shadow: $right $bottom 6px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: $right $bottom 6px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: $right $bottom 6px rgba(0, 0, 0, 0.2);
+}
+
+html, body {
+  position: relative;
+  height: 100%;
+}
+
+aside.sidebar {
+
+  background-color: $primary-color;
+
+  position: relative;
+  z-index: 40;
+
+  float: left;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  width: $sidebar-width;
+
+  @include material-shadow(0, 2px);
+  @extend %verticalscroll;
+  &, & a, &span {
+
+  }
+  .channel {
+    cursor: pointer;
+
+    height: $sidebar-height;
+    width: $sidebar-width;
+
+    &:hover {
+      background-color: $primary-color-dark;
+    }
+
+    img.channel-thumb {
+      float: left;
+      width: $sidebar-height / 2;
+      height: $sidebar-height / 2;
+      margin: $sidebar-height /4;
+    }
+
+    div.channel-detail {
+      float: left;
+      width: $sidebar-width - $sidebar-height;
+      height: $sidebar-height - $sidebar-padding-top*2;
+      padding: $sidebar-padding-top 0;
+    }
+
+    // total - img - scrollbar margin
+    $channel-detail-row-width: $sidebar-width - $sidebar-height - 25px;
+    div.channel-detail-row {
+      width: $channel-detail-row-width;
+    }
+  }
+}
+
+div.channel-detail-row {
+  float: left;
+  width: 100%;
+
+  @extend %opensanslight;
+  color: $primary-color-light;
+  font-size: 14px;
+
+  // 2 rows, so divide height
+  height: 50%;
+  overflow: hidden;
+
+  .channel-detail-end {
+    width: 42px;
+    float: right;
+  }
+
+  .channel-detail-start {
+    width: 42px;
+    float: left;
+  }
+
+  .channel-detail-name {
+    max-width: calc(100% - 84px);
+    float: left;
+    overflow: hidden;
+  }
+
+  progress {
+    width: 100%;
+    height: 10px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: none;
+
+    &[value]::-webkit-progress-value {
+      background-color: $accent-color;
+    }
+
+    &[value]::-webkit-progress-bar {
+      background-color: $primary-color-dark;
+    }
+
+    &[value]::-moz-progress-bar, &[value]::-webkit-progress-bar {
+      background-color: $accent-color;
+    }
+  }
+
+  &.channel-detail-row-thin {
+    height: 10px;
+  }
+}
+
+main.content {
+  position: relative;
+  z-index: 20;
+  float: left;
+  width: calc(100% - 360px);
+  height: 100%;
+
+  background-color: $background-color;
+}
+
+div.content-player {
+  height: 50%;
+  overflow: hidden;
+
+  .stievie-player {
+    height: 100%;
+    width: auto;
+  }
+}
+
+$epg-thumb-split: 30%;
+div.content-epg {
+  height: 50%;
+  position: relative;
+
+  margin: 0 auto;
+  overflow: hidden;
+
+  .epg-channel {
+    height: 100%;
+    position: relative;
+  }
+
+  .epg-channel-header {
+    position: relative;
+
+    padding: 0 15px;
+    background-color: $accent-color;
+    color: $primary-color-light;
+
+    height: 64px;
+
+    progress {
+      &[value]::-webkit-progress-value {
+        background-color: $primary-color-light;
+      }
+
+      &[value]::-webkit-progress-bar {
+        background-color: $accent-color;
+      }
+    }
+
+    h2 {
+      @extend %opensanslight;
+      margin: 0;
+    }
+  }
+
+  .epg-channel-thumb {
+    position: relative;
+
+    overflow: hidden;
+    height: calc(50vh - 64px);
+    width: calc((50vh - 64px) * 16 / 9);
+    float: left;
+
+    img {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+    }
+
+    .epg-channel-thumb-img {
+      z-index: 50;
+    }
+
+    .epg-channel-thumb-transistion {
+      z-index: 40;
+    }
+  }
+
+  .epg-list {
+    width: calc(100% - ((50vh - 64px) * 16 / 9));
+    height: calc(100% - 64px);
+    float: left;
+
+    @extend %verticalscroll;
+
+    .epg-program {
+
+      cursor: pointer;
+
+      @extend %opensanslight;
+
+      height: 30px;
+      line-height: 30px;
+      padding: 0 15px;
+
+      background-color: $background-color;
+
+      &:nth-child(2n) {
+        background-color: $primary-color-light;
+      }
+
+      .epg-program-endtime {
+        float: right;
+      }
+
+    }
+  }
+}

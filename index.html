@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stieviewer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/main.css">
+    <link href="http://vjs.zencdn.net/5.9.2/video-js.css" rel="stylesheet">
+
+    <script src="http://vjs.zencdn.net/5.9.2/video.js"></script>
+    <script src="js/vendor/videojs-contrib-hls.min.js"></script>
+    <script src="js/vendor/videojs-contrib-media-sources.min.js"></script>
+    <script>
+        videojs.options.flash.swf = "/swf/video-js.swf";
+    </script>
+</head>
+<body>
+
+<aside class="sidebar">
+    <div class="sidebar-content" data-role="stievie-channels">
+
+    </div>
+</aside>
+
+<main class="content">
+    <div class="content-player">
+            <video id="player" autoplay data-role="stievie-player" class="stievie-player video-js" controls preload="auto" width="640" height="264" data-setup="{techOrder: [ 'flash' ,'html5']}">
+                <source
+                        src=""
+                        type="application/x-mpegURL">
+                <p class="vjs-no-js">
+                    To view this video please enable JavaScript, and consider upgrading to a web browser that
+                    <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                </p>
+            </video>
+
+    </div>
+    <div class="content-epg" data-role="stievie-epg">
+
+    </div>
+</main>
+<!-- include flowplayer -->
+<script src="js/vendor/jquery.js"></script>
+<script src="js/lib/sha1.js"></script>
+<script src="js/lib/stievieHelper.js"></script>
+<script src="js/lib/stievie.js"></script>
+<script src="js/stieviewer.js"></script>
+</body>
+</html>
