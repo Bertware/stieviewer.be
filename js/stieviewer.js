@@ -2,7 +2,7 @@
  * Created by Bert on 24/03/2016.
  */
 
-var stieviejs = new Stievie("/proxy/playlist/", "/proxy/general/");
+var stieviejs = new Stievie("http://play.stieviewer.be/proxy/general", "http://play.stieviewer.be/proxy/playlist");
 
 var onSignIn = function (result) {
     if (!result) {

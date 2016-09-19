@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Stieviewer</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/vex.css">
     <link href="http://vjs.zencdn.net/5.9.2/video-js.css" rel="stylesheet">
@@ -18,25 +18,38 @@
 <body>
 
 <aside class="sidebar">
+    <div class="sidebarblock highlight sidebarblock">
+        <a href="http://www.stieviewer.be">Stieviewer &middot; stievie on any screen</a>
+    </div>
     <div class="sidebar-content" data-role="stievie-channels">
 
     </div>
-    <div class="logout">
-        <a href="#" onclick="localStorage.clear();  location.reload(); ">Log out</a>
+    <div class="sidebarblock highlight">
+        <a href="https://github.com/Bertware/stieviewer.be">View the code on github!</a>
     </div>
+    <div class="sidebarblock">
+        <a href="#" class="half">Donate</a><a href="#" onclick="localStorage.clear();  location.reload(); "
+                                              class="half">Log out</a>
+    </div>
+    <p class="footer">
+        <a href="http://bertmarcelis.be/">&copy;Bert Marcelis 2016</a> | <a href="#"
+                                                                            onclick="disclaimer();">Disclaimer</a> | <a
+            href="#" onclick="help();">Help</a>
+    </p>
 </aside>
 
 <main class="content">
     <div class="content-player">
-            <video id="player" autoplay data-role="stievie-player" class="stievie-player video-js" controls preload="auto" width="640" height="264" data-setup="{techOrder: [ 'flash' ,'html5']}">
-                <source
-                        src=""
-                        type="application/x-mpegURL">
-                <p class="vjs-no-js">
-                    To view this video please enable JavaScript, and consider upgrading to a web browser that
-                    <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-                </p>
-            </video>
+        <video id="player" autoplay data-role="stievie-player" class="stievie-player video-js" controls preload="auto"
+               width="640" height="264" data-setup="{techOrder: [ 'flash' ,'html5']}">
+            <source
+                    src=""
+                    type="application/x-mpegURL">
+            <p class="vjs-no-js">
+                To view this video please enable JavaScript, and consider upgrading to a web browser that
+                <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+            </p>
+        </video>
 
     </div>
     <div class="content-epg" data-role="stievie-epg">
@@ -47,6 +60,47 @@
 <script src="js/vendor/vex.combined.js"></script>
 <script type="text/javascript">
     vex.defaultOptions.className = 'vex-theme-default';
+
+    var disclaimer = function () {
+        vex.dialog.open({
+            unsafeMessage: [
+            'This is an UNOFFICIAL Stievie viewer.',
+            '',
+            'Please note the LICENSE of this software.',
+            'IN NO EVENT SHALL THE AUTHOR, HOST, or HOSTING PROVIDER BE LIABLE FOR ANY',
+            'CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,',
+            'TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE',
+            'SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.',
+            '',
+            'In other words: Don\'t sue me - this software is meant as a non-commercial home-use private alternative to watch the Stievie content.',
+            'In no way whatsoever it is meant (or even possible) to circumvent the proper use of Stievie as it is described in their Terms of use (http://www.stievie.be/algemenevoorwaarden)',
+            'Thanks for making this world a happy place :-)',
+            '' +
+            'This software is in no way affiliated or endorsed by Stievie, Medialaan or Triple-IT.',
+            'This software was inspired by steffest, and large parts of the codebase were re-used from his open-source project which has been taken down. This code has been reused with permission.' +
+            'For legal questions, contact legal@stieviewer.be'
+        ].join('<br>'),
+            buttons: [
+                $.extend({}, vex.dialog.buttons.YES, {text: 'Close'})
+            ]
+        });
+    };
+
+    var help = function () {
+        vex.dialog.open({
+            unsafeMessage: [
+                'Usage:', 'Please login with your official and legally obtained stievie credentials.',
+                'Click a TV-channel from the sidebar to switch channels, and select a program to watch.',
+                'Not all programs can be streamed due to limitations at stievie\'s side.',
+                'Use the 3 dots next to a program to skip the first x minutes',
+                '\nAbout safety:',
+                'Your credentials are transferred over an insecure connection. Your credentials are transferred through a proxy. Your credentials are not used, stored, collected, and the proxy is required due to technical limitations. All code can be found on github, and you can run your own stieviewer instance. By running your own instance, you have total control over your personal data.',
+                'Bugs and problems can be reported at github'].join('<br>'),
+            buttons: [
+                $.extend({}, vex.dialog.buttons.YES, {text: 'Close'})
+            ]
+        });
+    }
 </script>
 <script src="js/vendor/jquery.js"></script>
 <script src="js/lib/sha1.js"></script>

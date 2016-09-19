@@ -147,13 +147,11 @@ div.content-epg {
   top: calc(50% - 0.75em);
   left: calc(50% - 1.5em); }
 
-div.logout {
+div.sidebarblock {
   width: 100%;
-  border-top: 1px solid #ffffff;
   height: 60px;
-  position: absolute;
-  bottom: 0; }
-  div.logout a {
+  overflow: hidden; }
+  div.sidebarblock a {
     color: #fff;
     display: block;
     height: 100%;
@@ -161,5 +159,31 @@ div.logout {
     text-decoration: none;
     text-align: center;
     line-height: 60px; }
+    div.sidebarblock a:hover {
+      background-color: #1976D2; }
+  div.sidebarblock a.half {
+    display: inline-block;
+    width: 50%;
+    float: left; }
+  div.sidebarblock.highlight {
+    background-color: #009688; }
+
+p.footer {
+  width: 360px;
+  color: #fff;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  height: 20px;
+  overflow: hidden;
+  position: fixed;
+  background-color: #2196F3;
+  bottom: 0; }
+  p.footer a, p.footer a:link {
+    color: #fff;
+    height: 100%;
+    text-decoration: none;
+    text-align: center;
+    line-height: 20px; }
 
 /*# sourceMappingURL=main.css.map */
