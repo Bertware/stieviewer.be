@@ -2,7 +2,7 @@
  * Created by Bert on 24/03/2016.
  */
 
-var stieviejs = new Stievie("http://proxy.bertware.net/proxy", "http://proxy.bertware.net/");
+var stieviejs = new Stievie("/proxy/playlist/", "/proxy/general/");
 
 var onSignIn = function (result) {
     if (!result) {
@@ -13,9 +13,25 @@ var onSignIn = function (result) {
 
 var signIn = function () {
     if (!stieviejs.hasValidAuthHash()) {
-        var user = window.prompt("Username", "");
-        var pass = window.prompt("Password", "");
-        stieviejs.signIn(user, pass, onSignIn);
+        vex.dialog.open({
+            message: 'Please login with your stievie credentials. By logging in, you agree that your credentials might be passed through a proxy due to technical limitations. Use of this application is at your own risk, and the creator of the software, nor the parties involved in the hosting of this software can be held liable for any damage or claims. Localstorage is used to save your login credentials accross multiple sessions.',
+            input: [
+                '<input name="username" type="text" placeholder="Username" required />',
+                '<input name="password" type="password" placeholder="Password" required />'
+            ].join(''),
+            buttons: [
+                $.extend({}, vex.dialog.buttons.YES, { text: 'Login' }),
+                $.extend({}, vex.dialog.buttons.NO, { text: 'Back' })
+            ],
+            callback: function (data) {
+                if (!data) {
+                    vex.dialog.alert('You are not logged in. Refresh the page to restart the application.');
+                    return console.log('Cancelled')
+                }
+                stieviejs.signIn(data.username, data.password, onSignIn);
+            }
+
+        });
     } else {
         stieviejs.getChannels(null, true);
     }
