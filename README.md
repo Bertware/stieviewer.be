@@ -1,13 +1,15 @@
+The original Stievie was replaced with a new front- and backend. They now also support browsers natively. As this unofficial project doesn't work with their new (internal) APIs and web functionality is natively available, this unofficial project has been abandoned and the repo has been put in read-only mode. You can find the (official) Stievie at https://stievie.be/
+
 # stieviewer.be
-Stieviewer.be - unofficial online website for TV streaming using the Stievie API.
+Stieviewer.be - **unofficial** online website for TV streaming using the Stievie API (first version, discontinued 2016).
 
 Stieviewer.be offers the possibility to watch online TV using your existing stievie subscription. This way you're no longer limited to your phone or tablet, but you can also watch online on your computer.
 
 Demo online:
-http://www.stieviewer.be/
-http://play.stieviewer.be/
+~~http://www.stieviewer.be/--
+http://play.stieviewer.be/~~
 
-Please note that the demo site only allows SD streaming, while the code on the repo will stream in HD.
+~~Please note that the demo site only allows SD streaming, while the code on the repo will stream in HD.~~
 
 **Requirements:**
 
